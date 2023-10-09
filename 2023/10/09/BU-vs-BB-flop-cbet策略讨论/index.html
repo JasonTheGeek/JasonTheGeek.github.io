@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://jasonthegeek.github.io">
-  <title>Archives | Jason的博客</title>
+  <title>BU vs BB flop cbet策略讨论 | Jason的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Jason的博客">
-<meta property="og:url" content="https://jasonthegeek.github.io/archives/index.html">
+  <meta name="description" content="本文主要讨论BU vs BB的SRP，此场景复杂度低，也是比较适合我们研究cbet策略思路的基础场景。 范围与下注理由range&amp;nuts advantage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BU vs BB flop cbet策略讨论">
+<meta property="og:url" content="https://jasonthegeek.github.io/2023/10/09/BU-vs-BB-flop-cbet%E7%AD%96%E7%95%A5%E8%AE%A8%E8%AE%BA/index.html">
 <meta property="og:site_name" content="Jason的博客">
+<meta property="og:description" content="本文主要讨论BU vs BB的SRP，此场景复杂度低，也是比较适合我们研究cbet策略思路的基础场景。 范围与下注理由range&amp;nuts advantage">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-09T01:02:42.000Z">
+<meta property="article:modified_time" content="2023-10-09T09:03:20.324Z">
 <meta property="article:author" content="Jason Lin">
 <meta name="twitter:card" content="summary">
   
@@ -150,114 +154,227 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-BU-vs-BB-flop-cbet策略讨论" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      BU vs BB flop cbet策略讨论
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/10/09/BU-vs-BB-flop-cbet%E7%AD%96%E7%95%A5%E8%AE%A8%E8%AE%BA/" class="archive-article-date">
+
+        
+        <a href="/2023/10/09/BU-vs-BB-flop-cbet%E7%AD%96%E7%95%A5%E8%AE%A8%E8%AE%BA/" class="archive-article-date">
   	<time datetime="2023-10-09T01:02:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-09</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/10/09/BU-vs-BB-flop-cbet%E7%AD%96%E7%95%A5%E8%AE%A8%E8%AE%BA/">BU vs BB flop cbet策略讨论</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文主要讨论BU vs BB的SRP，此场景复杂度低，也是比较适合我们研究cbet策略思路的基础场景。</p>
+<h1 id="范围与下注理由"><a href="#范围与下注理由" class="headerlink" title="范围与下注理由"></a>范围与下注理由</h1><h3 id="range-nuts-advantage"><a href="#range-nuts-advantage" class="headerlink" title="range&amp;nuts advantage"></a>range&amp;nuts advantage</h3><span id="more"></span>
+<p>我们知道，在德扑中的对抗是range vs range，而Range Advantage是指，你的整体范围强于对手的整体范围，你代表的范围中的强牌永远大于他代表的范围中的强牌，中等牌大于他的中等牌，依次类推。<br>Nuts Advantage是指你代表的范围中有更多的nuts牌，什么是nuts牌？nuts牌就是在这个具体的board下，你愿意投入你大部分甚至所有筹码的牌。比如在AK7r上的AA、KK、AK、77，在972r上的AA、KK、QQ、99、77等。<br>当我们越具有Range Advantage时我们越可以高频率地下注，当我们越具有Nuts Advantage时我们下注的尺度就可以越大。</p>
+<h3 id="下注的理由，Value-or-Bluff？"><a href="#下注的理由，Value-or-Bluff？" class="headerlink" title="下注的理由，Value or Bluff？"></a>下注的理由，Value or Bluff？</h3><p>当我们下注时，要注意我们下注的理由。<br>下注基本只包含两个含义，价值下注和诈唬，也就是Value和Bluff。<br>Value中又细分为Charging draw和Deny equity：<br>Charging draw是指向对手的听牌收费，我们的目的是攻击对手的calling range，目的是要让对手比我们小的牌跟注。比如我们手拿QQ在972r的board上，我们的价值下注就是在攻击对手的一些JT，J8，68等等的听牌。<br>Deny equity是指阻止对手实现自己手牌的权益，也是我们常说的保护，这个行为主要是进攻对手的folding range，目的是让对手弃牌。比如在942r的board上我们手持A4s，我们下注可以是去攻击对手的一些比如QJo，KJo等overcard这些一旦击中，大概率就会反超我们的组合。<br>在这里需要强调的一个误区是，大部分人是把Value和Bluff是分开的，在他们的思想中我们的下注要么是一个Value，要么是一个Bluff，但这两者其实很多情况下是共存的，举个例子，我们手持AKs在772的board上下注，我们期望是打走对手的一些比如33、44、55的小对子，对手的一些强的two broadway例如AQs、KQs会跟注，那打盖小对子对于我们来说就是Bluff，而让两高张跟注就是Value，这二者又可以分开吗？所以如果只有非黑即白的下注思想，当你拿到类似AK这样的牌，在很多board就会不知道该怎么下注。</p>
+<h1 id="下注尺寸和频率"><a href="#下注尺寸和频率" class="headerlink" title="下注尺寸和频率"></a>下注尺寸和频率</h1><p>###Indifferent<br>Indifferent是指我们在下注charging draw时，我们在攻击的是这个board上对手范围内最多听牌的组合，而我们的下注要让对手无论是call还是fold的ev是接近于零的，也就是说对手永远不能通过overfold或者overcall来获得更多ev，这就是一个成功的下注。比方说对方的drawing combo集中在33%pot这个范围，你去bet 75%pot，对手永远可以通过overfold自己的drawing combo，call自己的强牌来剥削你的下注。</p>
+<p>下面是一个对手听牌强度表，通过12个比较有代表性的牌面展示了不同牌面上对手听牌的强度，横坐标越往右代表对手的听牌越有nuts听牌，这里包括一些顺子听牌（gutshot，oesd两头摇顺），还有一些同花听牌flush draw。纵坐标则表示了对手的中等牌力听牌，这里一般指对手的2overcards听牌，越往下越强，比如A72r的KQo听到K或者Q也是second pair但是在KK3r上的比如A5o听到A就成了top pair，这个也很好理解。</p>
+<table>
+<thead>
+<tr>
+<th align="center">听牌强度表</th>
+<th align="center">弱</th>
+<th align="center"></th>
+<th align="center">强</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">弱</td>
+<td align="center">A72r</td>
+<td align="center">Ah8h2d</td>
+<td align="center">AhJd9h</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">KK3r</td>
+<td align="center">Q82r</td>
+<td align="center">QsTs7c</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">J62r</td>
+<td align="center">T73r</td>
+<td align="center">Tc7c4h</td>
+</tr>
+<tr>
+<td align="center">强</td>
+<td align="center">833r</td>
+<td align="center">842r</td>
+<td align="center">6s3s2h</td>
+</tr>
+</tbody></table>
+<p>不同的drawing会对应不同的indifferent尺度，下面是不同drawing我们大概使用什么样的尺度会使对手的drawing变成indifferent。<br>因为很难通过下注使花顺双抽变成indifferent，所以把它放进最强的2xpot尺度里面，前面依次应该对应这些听牌。<br>所以我们就可以发现，当对手的范围比如说集中在这个列表前半部分的时候，你再去使用75%，pot尺度，就攻击不到他的calling range。这是indifferent的大致思想。</p>
+<table>
+<thead>
+<tr>
+<th align="center">fold</th>
+<th align="center">25%</th>
+<th align="center">33%</th>
+<th align="center">50%</th>
+<th align="center">75%</th>
+<th align="center">pot</th>
+<th align="center">2x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">air</td>
+<td align="center">backdoor flush and straight</td>
+<td align="center">1 overcard with backdoor flush</td>
+<td align="center">2 overcards</td>
+<td align="center">Gutshot</td>
+<td align="center">OESD&#x2F;FD</td>
+<td align="center">花顺双抽</td>
+</tr>
+</tbody></table>
+<h3 id="弹性"><a href="#弹性" class="headerlink" title="弹性"></a>弹性</h3><p>所谓弹性是指对手跟注的弹性，弹性越高，他能跟注的尺度越宽，弹性越小，跟注尺度越窄。<br>弹性高的牌就是一些摇顺抽花之类的牌，他会在中牌后成为nuts，有隐含赔率，你下小注和大注他都会跟。而弹性小的牌就是一些overcards，中牌了也是中等牌力的牌，他倾向于跟注小注，而不跟重注，这种弹性就比较低。<br>面对弹性高的牌，我们倾向于使用大注，弹性低的牌倾向于使用小注。</p>
+<h3 id="Charging-draws"><a href="#Charging-draws" class="headerlink" title="Charging draws"></a>Charging draws</h3><p>前文提到过charging draws是攻击对手的calling range，而且一般我们会使用大size，但这是在特定情况下，那么什么情况我们可以使用大size？<br>1.当对手的calling range是弹性的。<br>2.我们具有nuts advantage。<br>什么情况下不应该用大size？<br>1.当对手有nuts advantage。这样只会送钱给对手的nuts，并且你的下注会isolate出对手的nuts range进行后续的对抗。</p>
+<h3 id="Deny-Equity"><a href="#Deny-Equity" class="headerlink" title="Deny Equity"></a>Deny Equity</h3><p>deny equity是攻击对手的folding range，一般使用小size，什么情况下可以使用小size？<br>1.我们有range advantage。<br>2.我们的value range需要被保护。（对手有更多的overcards）<br>3.对手的calling range弹性不足。<br>4.对手有nuts advantage。<br>什么时候不应该用小size？<br>1.我们没有range advantage但有nuts advantage时。<br>2.对手的air range vs我们的下注range几乎没有equity。（不需要保护）比如对手击中了对子也没有我们现有的对子大等等。</p>
+<h3 id="下注尺寸的和频率原则"><a href="#下注尺寸的和频率原则" class="headerlink" title="下注尺寸的和频率原则"></a>下注尺寸的和频率原则</h3><p>至此，我们可以得出我们在flop cbet的下注原则。今后在cbet时，我们都要问自己如下几个问题，前期会比较费时，熟练之后便可以自如地在各种board上下注。</p>
+<p>1.谁有range advantage？谁有nuts advantage？<br>      a.范围优势越强，下注频率越高。<br>      b.坚果优势越强，下注尺度越大。<br>      c.若对手明显有坚果优势，不应该用大size。<br>2.对手整体范围的equity？<br>3.对手整体calling range的弹性如何？<br>      a.对手有更多没弹性的牌–小size（需要deny吗？）<br>      b.对手有更多有弹性的牌–大size</p>
+<h3 id="优先顺序"><a href="#优先顺序" class="headerlink" title="优先顺序"></a>优先顺序</h3><p>我们会发现我们的下注策略是从多个维度进行考量的，也就是说有可能在不同标准下我们得到的结果不一样，那当这种情况出现时，我们需要有优先级的进行调整。</p>
+<p>下面介绍几个强制性的优先级。<br>1.对手有坚果优势时，我们不应该做大size下注，哪怕对手有很多弹性高的牌。<br>2.对手的equity不需要去deny的时候，哪怕对手有很多没弹性的牌，我们也不一定要做小size下注。</p>
+<p>当我们无法做到同时deny equity和发挥坚果优势时，我们这时就需要multi size。<br>比如Q43r这个board，对方有很多的没有弹性的牌需要被deny equity，我们又兼具范围和坚果优势去发挥坚果优势charge他的draws，那这时到底该小尺度deny还是大尺度charge呢？这里就需要我们用到multi size，将我们的范围内的组合分类讨论。比如我们的33就需要我们发挥nuts advantage下大尺度，比如我们的88就需要小尺度deny对手的高张equity去保护自己的手牌。</p>
+<p>###典型Board举例</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://jasonthegeek.github.io/2023/10/09/BU-vs-BB-flop-cbet%E7%AD%96%E7%95%A5%E8%AE%A8%E8%AE%BA/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/09/18/%E5%BE%B7%E6%89%91%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" class="archive-article-date">
-  	<time datetime="2023-09-18T02:19:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2023/09/18/%E5%BE%B7%E6%89%91%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">德扑基础理论</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/09/18/%E5%BE%B7%E6%89%91%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/">德扑基础理论</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">仅适合新手入门</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/31/hello-world/" class="archive-article-date">
-  	<time datetime="2023-08-31T03:20:49.658Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/31/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -280,8 +397,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
