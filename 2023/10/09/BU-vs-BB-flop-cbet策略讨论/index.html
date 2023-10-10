@@ -16,7 +16,7 @@
 <meta property="og:description" content="本文主要讨论BU vs BB的SRP，此场景复杂度低，也是比较适合我们研究cbet策略思路的基础场景。 范围与下注理由range&amp;nuts advantage">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-09T01:02:42.000Z">
-<meta property="article:modified_time" content="2023-10-09T09:03:20.324Z">
+<meta property="article:modified_time" content="2023-10-10T02:10:45.603Z">
 <meta property="article:author" content="Jason Lin">
 <meta name="twitter:card" content="summary">
   
@@ -192,26 +192,26 @@
 <tbody><tr>
 <td align="center">弱</td>
 <td align="center">A72r</td>
-<td align="center">Ah8h2d</td>
-<td align="center">AhJd9h</td>
+<td align="center">A82t</td>
+<td align="center">AJ9t</td>
 </tr>
 <tr>
 <td align="center"></td>
 <td align="center">KK3r</td>
 <td align="center">Q82r</td>
-<td align="center">QsTs7c</td>
+<td align="center">QT7t</td>
 </tr>
 <tr>
 <td align="center"></td>
 <td align="center">J62r</td>
 <td align="center">T73r</td>
-<td align="center">Tc7c4h</td>
+<td align="center">T74t</td>
 </tr>
 <tr>
 <td align="center">强</td>
 <td align="center">833r</td>
 <td align="center">842r</td>
-<td align="center">6s3s2h</td>
+<td align="center">632t</td>
 </tr>
 </tbody></table>
 <p>不同的drawing会对应不同的indifferent尺度，下面是不同drawing我们大概使用什么样的尺度会使对手的drawing变成indifferent。<br>因为很难通过下注使花顺双抽变成indifferent，所以把它放进最强的2xpot尺度里面，前面依次应该对应这些听牌。<br>所以我们就可以发现，当对手的范围比如说集中在这个列表前半部分的时候，你再去使用75%，pot尺度，就攻击不到他的calling range。这是indifferent的大致思想。</p>
@@ -245,7 +245,34 @@
 <h3 id="优先顺序"><a href="#优先顺序" class="headerlink" title="优先顺序"></a>优先顺序</h3><p>我们会发现我们的下注策略是从多个维度进行考量的，也就是说有可能在不同标准下我们得到的结果不一样，那当这种情况出现时，我们需要有优先级的进行调整。</p>
 <p>下面介绍几个强制性的优先级。<br>1.对手有坚果优势时，我们不应该做大size下注，哪怕对手有很多弹性高的牌。<br>2.对手的equity不需要去deny的时候，哪怕对手有很多没弹性的牌，我们也不一定要做小size下注。</p>
 <p>当我们无法做到同时deny equity和发挥坚果优势时，我们这时就需要multi size。<br>比如Q43r这个board，对方有很多的没有弹性的牌需要被deny equity，我们又兼具范围和坚果优势去发挥坚果优势charge他的draws，那这时到底该小尺度deny还是大尺度charge呢？这里就需要我们用到multi size，将我们的范围内的组合分类讨论。比如我们的33就需要我们发挥nuts advantage下大尺度，比如我们的88就需要小尺度deny对手的高张equity去保护自己的手牌。</p>
-<p>###典型Board举例</p>
+<h1 id="典型Board举例"><a href="#典型Board举例" class="headerlink" title="典型Board举例"></a>典型Board举例</h1><p>场景：BU vs BB srp 100bb deep<br>hero：BU</p>
+<h3 id="AK9r"><a href="#AK9r" class="headerlink" title="AK9r"></a>AK9r</h3><p>第一个问题，范围优势和坚果优势：</p>
+<p>BU相对BB会open的更紧，所以更具有范围优势。<br>BU有更多的AA KK AK 99 A9 K9等组合，而BB永远没有AA KK AK 99等组合，所以BU更有坚果优势。<br>有范围优势就可以下注频率更高，有坚果优势就可以下注尺度越大，之后的例子中不再赘述。</p>
+<p>第二个问题，对手范围内的equity：</p>
+<p>对手不会存在overcard，最好的牌可能有一些卡顺等牌，总体范围来说对手的equity是很低的。</p>
+<p>第三个问题，对手calling range的弹性：<br>对手范围内有很多Q6s 78s 43s等等没有什么弹性的牌。当我们知道对手calling range中有很多没弹性的牌之后，我们要问自己这些牌的equity需要被deny吗？在第二个问题中我们知道对手范围内的equity很低，所以不需要deny。<br>对手范围里也有很多QJ QT JT等有弹性的牌，所以要使用大size。<br>大致思路为：<br>没弹性—-&gt;需要deny—-&gt;小size<br>没弹性—-&gt;不需要deny—-&gt;不使用小size（可能大size，可能check，根据其它问题的结果决定）<br>有弹性—-&gt;大size</p>
+<p>我们再回顾一下问题的答案，在AK9r这个牌面上，BU有范围优势，坚果优势，对手范围equity低，弹性高低的组合都有很多且弹性差的牌不需要deny equity。</p>
+<p>综上，我们的策略就应该是高频率的大size下注。</p>
+<h3 id="QT2r"><a href="#QT2r" class="headerlink" title="QT2r"></a>QT2r</h3><p>一：<br>BU更有范围优势，BU更有坚果优势。</p>
+<p>二：<br>有很多单高张，但不太会有双高张，双高张就只有aa kk ak，会3bet，所以equity定义为中。</p>
+<p>三：<br>有很多没弹性的牌，需要deny吗？需要，比如我们的A2打盖对手的34s，55打盖对手的67s等等，我们都认为是不错的。<br>有很多有弹性的牌，例如gutshot，oesd等。</p>
+<p>综上，我们有理由去bet小size，也有理由bet大size，那我们就根据不同的combo做不同的事情，最终结论这个board应该是multi size。</p>
+<h3 id="J64r"><a href="#J64r" class="headerlink" title="J64r"></a>J64r</h3><p>一：<br>BU更有范围优势，BU会open J6s 64s，可能不会open J4s，但有很多QQ KK AA AJ这种接近nuts的牌，所以BU还是更有坚果优势。</p>
+<p>二：<br>对手开始会有双高张，还有很多单高张，整体equity为中上，比QT2r多但不会很高。</p>
+<p>三：<br>有很多没弹性的牌，KQ KT K6 K8，需要去deny吗？需要。<br>有很多有弹性的牌，53 57 52s，但相比没弹性的牌较少。</p>
+<p>综上，虽然我们具有坚果优势，但是对手的范围集中在需要deny equity的低弹性的组合，我们就不想使用multi size，会使用一个高频率小size。</p>
+<h3 id="972r"><a href="#972r" class="headerlink" title="972r"></a>972r</h3><p>一：<br>BU有范围优势，BU有很多超对，set，BU有坚果优势。</p>
+<p>二：<br>对手有很多的双高张，对手整体的equity是高的。</p>
+<p>三：<br>有很多没弹性的牌，所有的两高张，单高张都属于没弹性的牌，需要deny吗？需要。<br>有很多有弹性的牌，很多的gutshot，oesd。</p>
+<p>综上，会变成multi size。高频小size去保护自己的中小对子，高频大size利用坚果优势攻击对方的draw。</p>
+<h3 id="662r"><a href="#662r" class="headerlink" title="662r"></a>662r</h3><p>一：<br>BU更有范围优势，这里的坚果基本就是6x，超对在这个牌面已经不太算坚果，而BB有更多的6x，所以BB有坚果优势。</p>
+<p>二：<br>对手范围的双高张变得更多，所以整体equity是高。</p>
+<p>三：<br>对手有很多没弹性的牌，所有的overcards都是没弹性的。需要deny吗？需要。<br>对手有弹性的牌较少，只有一些43 54。</p>
+<p>综上，中频率的小size去攻击对手没弹性的calling range，我们不太会想太高频的cbet因为我们不想看到对手利用自己的坚果优势攻击自己。</p>
+<p>我们不可能提前学习好每个牌面的策略，我们要记住的是分析问题的方法，先通过翻前行动，位置，对手习惯，确定一个双方范围，然后在翻牌后套用进我们的问题里。当牌面发生改变，我们只需要根据这几个例子去拓展，或者利用这几个问题重新分析，熟练之后我们就可以自如地在各种情况下注。</p>
+<p>比如QT2r变成QT2t会发生什么事，后门花是没弹性的牌，但是前门花是有弹性的牌，所以对手有弹性的牌变多了，如果我们的multi size策略之前是一半小size一半大size，那在变成QT2t后就会把大size比例变高，比如30%对70%。</p>
+<p>比如QT2r变成QT8r又会发生什么事？对手范围内有弹性的牌变高了，原来比如97o是没弹性的，现在变成有弹性的，我们下注的size会上升，但与此同时我们的AQ KK AA可能现在不能是nuts了，只是一个强牌，因为天顺的可能变高了，那我们不具备坚果优势，我们的下注尺度要变低。一个上升一个下降可能最后结果我们的下注尺度和QT2r的尺度是一样的，但是中间的思维逻辑是完全不一样的，这个是需要我们不断去思考达到熟练的程度的。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>以上就是BU vs BB cbet策略的简单介绍，其实中间还会有一些leak of range和range after action的细节在其中，但我觉得上述的内容已经足够我们在很多情况下做出决策，而leak of range和range after action本质上也就是根据玩家池和行动做出范围的调整，有机会再做介绍。</p>
 
       
 
